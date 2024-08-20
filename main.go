@@ -1,14 +1,9 @@
 package main
 
 import (
-	"context"
 	"flag"
-	"fmt"
 	"github.com/fishingboy/GoTest/commend"
-	"os"
 )
-
-const VERSION = "1.0.0"
 
 func main() {
 	var showVersion bool
@@ -19,12 +14,15 @@ func main() {
 	flag.Parse()
 
 	if showVersion {
-		fmt.Println(VERSION)
-		os.Exit(0)
+		cmd = "version"
 	}
 
 	switch cmd {
-	case "commend":
-		commend.Index(context.Background())
+	case "version":
+		commend.Version()
+	case "grep":
+		commend.Grep()
+	case "scope":
+		commend.Scope()
 	}
 }

@@ -1,10 +1,9 @@
 package commend
 
 import (
-	"context"
 	"fmt"
 )
 
-func Index(ctx context.Context) {
+func Grep() {
 	fmt.Println("commend")
 }
