@@ -1,7 +1,8 @@
-package main
+package tests
 
 import (
 	"net/http"
+	"testing"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -16,7 +17,7 @@ type MGetBookingQ struct {
 	EndTime   time.Time `form:"EndTime" json:"endTime"`
 }
 
-func main() {
+func TestJson(t *testing.T) {
 	r := gin.Default()
 
 	// 路由處理表單資料

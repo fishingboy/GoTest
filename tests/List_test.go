@@ -1,6 +1,9 @@
-package main
+package tests
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
 type List[T any] struct {
 	next *List[T]
@@ -29,7 +32,7 @@ func (l *List[T]) PrintAll() {
 	}
 }
 
-func main() {
+func TestExercise(t *testing.T) {
 	// 使用 * 號
 	var list *List[int]
 	list = list.Append(10)

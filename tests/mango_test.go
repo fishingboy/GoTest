@@ -1,4 +1,4 @@
-package main
+package tests
 
 import (
 	"context"
@@ -7,20 +7,15 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
+	"testing"
 )
 
-func main() {
+func TestFindOne(t *testing.T) {
 	uri := "mongodb://127.0.0.1:27017/"
 	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
 	if err != nil {
 		panic(err)
 	}
-
-	defer func() {
-		if err := client.Disconnect(context.TODO()); err != nil {
-			panic(err)
-		}
-	}()
 
 	coll := client.Database("coffeeagent").Collection("user")
 	userName := "master"
