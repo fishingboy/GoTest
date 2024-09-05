@@ -40,7 +40,7 @@ func TestUpdateOne(t *testing.T) {
 	result, err := coll.UpdateOne(
 		context.TODO(),
 		bson.D{{"name", userName}},
-		bson.D{{"$set", bson.D{{"age", 28}}}},
+		bson.D{{"$set", bson.D{{"leo-age", 28}}}},
 	)
 	assert.Nil(t, err)
 	fmt.Printf("The number of modified documents: %d\n", result.ModifiedCount)
