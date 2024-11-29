@@ -54,11 +54,11 @@ func TestMapCannotAssign(t *testing.T) {
 	}
 
 	// 模擬增加計數
-	for id := range idleItem {
-		// 一定要宣告是指標，才有辦法改值
-		// 這樣的話就一定會出錯
-		idleItem[id].Count++
-	}
+	//for id := range idleItem {
+	// 一定要宣告是指標，才有辦法改值
+	// 這樣的話就一定會出錯
+	//idleItem[id].Count++
+	//}
 
 	// 打印結果
 	for id, item := range idleItem {
