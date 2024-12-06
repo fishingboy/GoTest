@@ -1,8 +1,11 @@
 package tests
 
 import (
+	"encoding/json"
 	"fmt"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 // 定義結構 Item
@@ -64,4 +67,35 @@ func TestMapCannotAssign(t *testing.T) {
 	for id, item := range idleItem {
 		fmt.Printf("ItemID: %d, Count: %d\n", id, item.Count)
 	}
+}
+
+func TestMapForRange(t *testing.T) {
+	type cc struct {
+		Name string
+	}
+	m := map[int32]cc{}
+	m[3] = cc{Name: "Leo"}
+	m[6] = cc{Name: "Evonne"}
+	m[9] = cc{Name: "Ron"}
+	m[12] = cc{Name: "Rainlay"}
+	fmt.Println(m)
+	// map 使用 for range 倒出來的時候，順序是隨機的
+	for k, v := range m {
+		fmt.Println(k, v)
+	}
+}
+
+func TestMapAssert(t *testing.T) {
+	a := []int{}
+	m := map[int]int{}
+
+	fmt.Printf("{m} ==> %s\n", func() []byte {
+		jsonString, _ := json.MarshalIndent(m, "", "    ")
+		return jsonString
+	}())
+
+	assert.NotNil(t, a)
+	assert.Empty(t, a)
+	assert.NotNil(t, m)
+	assert.Empty(t, m)
 }
