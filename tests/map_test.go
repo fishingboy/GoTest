@@ -99,3 +99,26 @@ func TestMapAssert(t *testing.T) {
 	assert.NotNil(t, m)
 	assert.Empty(t, m)
 }
+
+func TestMap2(t *testing.T) {
+	team := map[int32]int32{}
+
+	x := int32(1)
+	x += team[x]
+	if team[x] == 0 {
+		fmt.Println("team == nil")
+	} else {
+		fmt.Println("team != nil")
+	}
+}
+
+func TestMap3(t *testing.T) {
+	team := map[int32]map[int32]int32{}
+
+	x := int32(1)
+	if team[x] == nil {
+		fmt.Println("team == nil")
+	} else {
+		fmt.Println("team != nil")
+	}
+}
